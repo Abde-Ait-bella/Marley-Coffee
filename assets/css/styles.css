@@ -255,7 +255,7 @@ a{
     height: 90%;
     object-fit: cover;
     border-radius: 15px;
-    height: 100%;
+    height: 80%;
 }
 
 .about-us .content .images .img_1{
@@ -452,6 +452,11 @@ footer .footer-content .X:hover .alert.X{
         display: grid;
         grid-template-columns: auto;
         height: auto;
+    }
+
+    
+    .about-us .content .images img{
+        height: 80%;
     }
 
     footer .footer-p, footer .footer-content .info .alert{
