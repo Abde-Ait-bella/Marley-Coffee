@@ -4,10 +4,30 @@
     box-sizing: border-box;
 }
 
+@font-face{
+    font-family: acme;
+    src: url(../../Fonts/Acme-Regular.woff);
+}
+
+@font-face{
+    font-family: Pacifico;
+    src: url(../../Fonts/Pacifico-Regular.woff);
+}
+
 @font-face {
     font-family: Brother;
     src: url(../../Fonts/BROTHER-Bold.woff);
   }
+
+  @keyframes move-up {
+    0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(5px);
+      }
+  }
+
 
 body {
     position: relative;
@@ -18,6 +38,19 @@ body {
 h2{
     font-family: Brother;
     font-size: xxx-large;
+    color: white;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.sub-title{
+    text-align: center;
+    color: white;
+    font-family: Pacifico;
 }
 
 .navbar{
@@ -32,6 +65,79 @@ h2{
     padding-top: 10px;
 }
 
+.navbar .menuresponsive{
+    background-color: rgb(14, 5, 0);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    left: 0;
+    top: -70vh;
+    height: 70vh;
+    border-bottom: 3px solid #322119;
+    padding: 5rem 0 2rem 0;
+    transition: top 0.6s ease-in-out;
+}
+
+.navbar .menuresponsive.open{
+   top: 0;
+   transition: top 0.6s ease-in-out;
+}
+
+.navbar .menuresponsive ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .berger{
+    width: 2.6rem;
+    height: 0.4rem;
+    background-color: white;
+    position: relative;
+    transition: background-color 0.5s ease 0.5s;
+}
+
+.navbar .berger::before{
+    width: 2.6rem;
+    position: absolute;
+    content: "";
+    bottom: 0.7rem;
+    height: 0.4rem;
+    background-color: white;
+    transform: rotate(0deg);
+    transition: bottom 0.5s ease 0.5s, transform 0.5s ease;
+}
+
+.navbar .berger::after{
+    width: 2.6rem;
+    position: absolute;
+    content: "";
+    top: 0.7rem;
+    height: 0.4rem;
+    background-color: white;
+    transform: rotate(0deg);
+    transition: top 0.5s ease 0.5s, transform 0.5s ease;
+}
+
+.navbar .berger.open{
+    background: transparent;
+    transition: background 0.5s ease;
+}
+
+.navbar .berger.open::after{
+    top: 0;
+    transform: rotate(45deg);
+    transition: top 0.5s ease, transform 0.5s ease 0.5s;
+}
+
+.navbar .berger.open::before{
+    bottom: 0;
+    transform: rotate(-45deg);
+    transition: bottom 0.5s ease, transform 0.5s ease 0.5s;
+}
+
 .transparent{
     content: "";
     position: absolute;
@@ -44,12 +150,12 @@ h2{
     filter: blur(3px);
 }
 
-.navbar .image, .navbar ul{
+.navbar .image, .navbar .menu-nav {
     z-index: 1;
 }
 
 .navbar .image img{
-    width: 120px;
+    width: 10vw;
     padding-top: 5px;
     
 }
@@ -60,17 +166,22 @@ h2{
 
 .navbar ul {
     display: flex;
-    gap: 20px;
+    gap: 3rem;
     list-style: none;
-
 } 
 
 .navbar ul li a {
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Brother';
     color: white;
+    font-size: 1.4rem;
+}
+
+.navbar ul li.active{
+  
+    scale: 1.5;
 }
 
 .main {
@@ -91,9 +202,9 @@ h2{
 
 .main h1 {
     position: absolute;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: acme;
     color: white;
-    font-size: 100pt;
+    font-size: 13vw;
     height: 100%;
     width: 100%;
     display: flex;
@@ -114,16 +225,11 @@ h2{
     display: grid;
     gap: 40px;
     padding: 25px 0 90px 0;
-
-
 }
 
-.about-us .titles{
+.titles{
     display: grid;
     justify-content: center;
-    text-align: center;
-    color: white;
-    font-family: cursive;
     margin: 70px 0 90px 0;
 }
 
@@ -132,7 +238,7 @@ h2{
     grid-template-columns: auto auto;
     gap: 20px;
     padding: 0px 100px;
-    min-height: 300px;
+    /* min-height: 300px; */
 
 }
 
@@ -146,23 +252,29 @@ h2{
 
 .about-us .content .images img{
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: cover;
-    height: 80%;
     border-radius: 15px;
+    height: 100%;
 }
 
 .about-us .content .images .img_1{
     display: grid;
     align-items: end;
+    animation: move-up 1.5s ease-in-out infinite alternate-reverse; /*timing-function delay iteration-count direction fill-mode;*/
+
 }
 .about-us .content .images .img_2{
     display: grid;
     align-items: center;
+    position: relative;
+    animation: move-up 1s ease-in-out infinite alternate-reverse; /*timing-function delay iteration-count direction fill-mode;*/
 }
 .about-us .content .images .img_3{
     display: grid;
     align-items: start;
+    animation: move-up 2s ease-in-out infinite alternate-reverse; /*timing-function delay iteration-count direction fill-mode;*/
+
 }
 
 .about-us .content {
@@ -195,20 +307,22 @@ h2{
 
 footer{
     width: 100%;
-    height: 30vh;
-    display: grid;
+    height: 10rem;
+    display: flex;
     justify-content: center;
-    margin:  50px 0 40px;
+    margin:  9.5rem 0 40px;
     position: relative;
 }
 
-
-
-footer div{
+footer::after{
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
     height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
+    z-index: 1;
+    border-radius: 15px;
 }
 
 footer .footer-image{
@@ -220,19 +334,127 @@ footer .transparent{
     border-radius: 20px;
     left: 10%;
     width: 80%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    height: 100%;
+    background-image: url("../images/footer.avif");
+    background-size: cover;
+    background-attachment: fixed;
     filter: none;
 }
 
-footer .footer-image img{
+
+footer .footer-content{
+    position: relative; 
+    z-index: 2;
+    display: flex;
+    flex-flow: column;
     width: 80%;
-    object-fit: cover;
-    border-radius: 20px;
-    position: relative;
+    justify-content: space-around;
+    overflow: hidden;
+
+}
+
+footer .footer-content .footer-p{
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-family: acme;
+    color: #9D7E59;
+}
+
+footer .footer-content .info{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
 }
 
 
+footer .footer-content .info div{
+    position: relative;
+   
+}
 
+footer .footer-content .info i{
+    font-size: 25px;
+}
 
+footer .footer-content .info .alert{
+    position: absolute;
+    top: -37px;
+    left: -61px;
+    color: wheat;
+    width: 150px;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    flex-wrap: nowrap;
+    background-color: rgb(14, 5, 0);
+    font-family: acme;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
 
+footer .footer-content .info .alert::before{
+    position: absolute;
+    content: "";
+    top: 7px;
+    left: 40%;
+    color: black;
+    width: 20px;
+    height: 82%;
+    transform: rotate(45deg);
+    background-color: rgb(14, 5, 0);
+    z-index: -1;
+}
+
+footer .footer-content .info .alert p{
+    text-align: center;
+    width: 100%;
+}
+
+footer .footer-content .official_website:hover .alert.website{
+    opacity: 1;
+}
+
+footer .footer-content .facebook:hover .alert.facebook{
+    opacity: 1;
+}
+
+footer .footer-content .X:hover .alert.X{
+    opacity: 1;
+}
+
+@media only screen and (max-width: 600px){
+    .navbar .menu-nav ul{
+        display: none;
+    }
+    .navbar .image img{
+        width: 100px;
+        padding-top: 5px;
+    }
+
+    .about-us .content {
+        display: grid;
+        grid-template-columns: auto;
+        padding: 0px 55px;
+        gap: 3.5rem;
+    }
+
+    footer .footer-content{
+        justify-content: space-evenly;
+    }
+
+    .about-us .content .images{
+        display: grid;
+        grid-template-columns: auto;
+        height: auto;
+    }
+
+    footer .footer-p, footer .footer-content .info .alert{
+        display: none;
+    }
+}

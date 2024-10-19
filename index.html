@@ -5,21 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil | Coffee</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     
     <header>
         <nav class="navbar">
             <div class="transparent"></div>
-            <!-- <h1>Coffee</h1> -->
             <div class="image">
                 <img src="./assets/images/logo.png" alt="">
             </div>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact us</a></li>
-            </ul>
+            <div class="menuresponsive">
+                <ul>
+                    <li class="active"><a href="./index.html">Home</a></li>
+                    <li><a href="./galery.html">Gallery</a></li>
+                    <li><a href="./contact.html">Contact us</a></li>
+                </ul>
+            </div>
+            <!-- <div class="menu-nav">
+                <ul>
+                    <li class="active"><a href="./index.html">Home</a></li>
+                    <li><a href="./galery.html">Gallery</a></li>
+                    <li><a href="./contact.html">Contact us</a></li>
+                </ul>
+            </div> -->
+            <div class="berger">
+            </div>
         </nav>
     </header>
 
@@ -31,8 +42,8 @@
     </section>
     <section class="about-us">
         <div class="titles">
-            <p>-Bienvenue à-</p>
-            <h2>Gourmet Grove</h1>
+            <p class="sub-title">-Bienvenue à-</p>
+            <h2>Marley Coffee</h1>
 
         </div>
         <div class="content">
@@ -60,10 +71,32 @@
         <div></div>
     </div>
     <footer>
-        <div class="transparent"></div>
-        <div class="footer-image">
-            <img src="./assets/images/footer.avif" alt="">
+        <div class="footer-content">
+            <p class="sub-title">-Suivez-nous-</p>
+            <p class="footer-p">Follow us to get inspired and learn more about Marley Coffee.</p>
+            <div class="info">
+                <div class="official_website">
+                    <a target="_blank" href="https://marleycoffee.com/"><i class="fa-solid fa-link"></i></a>
+                    <div class="alert website">
+                        <p>Official Website</p>
+                    </div>
+                </div>
+                <div class="facebook">
+                    <a target="_blank" href="https://www.facebook.com/MarleyCoffee/"><i class="fa-brands fa-facebook-f"></i></a>
+                    <div class="alert facebook">
+                        <p>facebook</p>
+                    </div>
+                </div>
+                <div class="X">
+                    <a target="_blank" href="https://x.com/i/flow/login?redirect_after_login=%2FMarleyCoffee"><i class="fa-brands fa-x-twitter"></i></a>
+                    <div class="alert X">
+                        <p>twitter</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="transparent"></div>
     </footer>
 </body>
+<script src="./main.js" ></script>
 </html>

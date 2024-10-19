@@ -1,0 +1,102 @@
+#Gallery{
+    flex-direction: column;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    padding-top: 4rem;
+}
+
+#Gallery .images{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 5% 15%;
+    height: 100%;
+}
+
+#Gallery .images .parent._1{
+    gap: 1.5rem;
+    display: grid;
+    grid-template-rows: 30% auto;
+    height: 200vh;
+}
+
+#Gallery .images .parent._2{
+    gap: 1.5rem;
+    display: grid;
+    grid-template-rows: 60% auto;
+    height: 200vh;
+}
+
+#Gallery .images .parent._3{
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-column: span 2 ;
+    gap: 1.5rem;
+    height: 60vh;
+}
+
+#Gallery .images .parent._1 ._01{
+    background-image: url("../images/1080.webp");
+    background-size: cover;
+    height: 100%;
+    border-radius: 15px;
+}
+
+#Gallery .images .parent._1 ._02{
+    background-image: url("../images/Web-20140116-60.jpg");
+    background-size: cover;
+    height: 100%;
+    border-radius: 15px;
+}
+
+#Gallery .images .parent._2 ._03{
+    background-image: url("../images/155466-800-auto.webp");
+    background-size: cover;
+    height: 100%;
+    border-radius: 15px;
+}
+
+#Gallery .images .parent._2 ._04{
+    background-image: url("../images/1080\ \(1\).webp");
+    background-size: cover;
+    height: 100%;
+    border-radius: 15px;
+}
+
+#Gallery .images .parent._3 ._05{
+    background-image: url("../images/8f573176266707.5c646820356b3.jpg");
+    background-size: cover;
+    height: 100%;
+    border-radius: 15px;
+}
+
+#Gallery .images .parent._3 ._06{
+    background-image: url("../images/f2276a78268847.5c9fe3420ea51.jpg");
+    background-size: cover;
+    height: 100%;
+    border-radius: 15px;
+}
+
+._01:hover, ._02:hover, ._03:hover, ._04:hover, ._05:hover, ._06:hover{
+    scale: 0.95;
+    transition: 0.4s ease;
+}
+
+
+@media only screen and (max-width: 600px){
+
+    #Gallery .images{
+        grid-template-columns: auto;
+    }
+
+    #Gallery .images .parent._3{
+        grid-template-columns: auto;
+        grid-column: span 1;
+    }
+
+    #Gallery .images div[class*= 'parent']{
+        height: 100vh !important;
+    }
+}
